@@ -22,12 +22,7 @@ def task(
         queue.handler_registry[f._path] = f
 
         @wraps(f)
-        def wrapper(
-            *args,
-            _schedule_at=None,
-            _expected_at=None,
-            **kwargs
-        ):
+        def wrapper(_schedule_at=None, _expected_at=None, *args, **kwargs):
             put_kwargs = dict(
                 schedule_at=_schedule_at or schedule_at,
                 expected_at=_expected_at or expected_at,

@@ -12,10 +12,6 @@ setup(
     url='https://github.com/malthe/pq/',
     author_email='mborch@gmail.com',
     description=__doc__,
-    long_description='\n\n'.join((
-        open('README.rst', encoding='utf-8').read(),
-        open('CHANGES.rst', encoding='utf-8').read()
-    )),
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,

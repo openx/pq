@@ -14,7 +14,7 @@ from .utils import (
 )
 
 
-__title__ = 'pq'
+__title__ = 'openx-python-pq'
 __version__ = '1.5-dev'
 __author__ = 'Malthe Borch'
 __license__ = 'BSD'
@@ -362,9 +362,9 @@ class Queue(object):
             self.cursor.execute("RELEASE SAVEPOINT pq")
             return
 
-        with self._conn() as conn, transaction(conn, **self.cursor_kwargs) \
-                as cursor:
-            yield cursor
+        with self._conn() as conn:
+            with transaction(conn, **self.cursor_kwargs) as cursor:
+                yield cursor
 
 
 class Job(object):
